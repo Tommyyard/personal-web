@@ -1,0 +1,196 @@
+:root {
+    --primary-color: #ff3902;
+    --secondary-color: #1a1a1a;
+    --text-color: #fff;
+    --hover-bg-color: rgba(133, 173, 179, 0.3);
+        /* Background */
+    --bg-primary: #0a0a0a;      /* paling gelap - background utama */
+    --bg-card: #141414;         /* sedikit lebih terang - card/item */
+    --bg-surface: #1e1e1e;      /* border dan pemisah */
+
+    /* Text */
+    --text-primary: #f0f0f0;    /* putih lembut - teks utama */
+    --text-secondary: #888888;  /* abu-abu - teks deskripsi */
+
+    /* Accent */
+    --accent: #ff3902;          /* merah-oranye - tombol, highlight */
+    --accent-hover: #cc2d00;    /* accent lebih gelap untuk hover */
+
+}
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+/* satu selector saja untuk nav-link, tidak perlu override di a */
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.nav-link:hover {
+    background-color: rgba(133, 173, 179, 0.3);
+}
+
+/* ===== HOME ===== */
+.home {
+    background-image: 
+        linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%),
+        url(/img/pexels-egisj-36665315.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    text-align: center;
+    padding: 0 20px;
+}
+
+.home h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.home p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: 0.85;
+}
+
+/* ===== BUTTON ===== */
+.button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #cc2d00;
+    transform: scale(1.05);
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.gallery-item {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--bg-surface);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+/* ===== CONTACT ===== */
+.contact {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info {
+    border-color: var(--text-secondary);
+    border-width: 1px;
+    border-style: solid;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
