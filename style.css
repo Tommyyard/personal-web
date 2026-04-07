@@ -87,7 +87,7 @@
 .home {
     background-image: 
         linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%),
-        url(/img/pexels-egisj-36665315.jpg);
+        url(./img/pexels-egisj-36665315.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
