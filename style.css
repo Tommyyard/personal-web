@@ -1,12 +1,15 @@
 :root {
     --primary-color: #ff3902;
     --secondary-color: #1a1a1a;
+    --thirdary-color: rgb(66, 66, 66);
+    --dark-grey:#111;
     --text-color: #fff;
+    --text-before: #aaa;
     --hover-bg-color: rgba(133, 173, 179, 0.3);
         /* Background */
     --bg-primary: #0a0a0a;      /* paling gelap - background utama */
     --bg-card: #141414;         /* sedikit lebih terang - card/item */
-    --bg-surface: #1e1e1e;      /* border dan pemisah */
+    --bg-surface: #242424;      /* border dan pemisah */
 
     /* Text */
     --text-primary: #f0f0f0;    /* putih lembut - teks utama */
@@ -27,6 +30,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* ===== NAVBAR ===== */
@@ -169,6 +173,74 @@
     transform: scale(1.03);
 }
 
+
+/* ===== JOURNEY ===== */
+.journey {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.main-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.main-container::before {
+   content: '';
+    position: absolute;
+    width: 4px;           
+    background-color: #333; 
+    top: 0;
+    bottom: 0;
+    left: 50%;           
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px; 
+    z-index: 1;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    left: 50%;
+    top: 20px; /* Sesuaikan dengan padding kotakmu */
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.container-text {
+    padding: 20px;
+    background: var(--thirdary-color);
+    border: 1px solid var(--thirdary-color);
+    border-radius: 8px;
+    width: 45%; /* Kotak hanya selebar 45% agar tidak menutupi garis tengah */
+}
+
+/* Variasi: Kotak selang-seling (Kiri - Kanan) */
+.container:nth-child(odd) .container-text {
+    margin-left: auto; /* Kotak ganjil di kanan */
+}
+
+.container:nth-child(even) .container-text {
+    margin-right: auto; /* Kotak genap di kiri */
+}
+
+
+
 /* ===== CONTACT ===== */
 .contact {
     min-height: 100vh;
@@ -179,18 +251,88 @@
 }
 
 .contact-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .contact-info {
-    border-color: var(--text-secondary);
-    border-width: 1px;
-    border-style: solid;
+    background-color: var(--bg-card);
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
+    text-align: justify;
 }
 
+.contact-form {
+    padding: 2.4rem;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--bg-surface);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: none;
+}
+
+.contact-form button {
+    background-color: var(--accent);
+    color: var(--text-color);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--accent-hover);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column; /* susun ke bawah */
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center; /* icon & teks sejajar tengah */
+    gap: 10px; /* jarak antara icon dan teks */
+    color: var(--text-color);
+}
+
+footer {
+  background-color: var(--dark-grey);
+  color: #aaa;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.875rem;
+}
+
+footer a {
+  color: var(--text-before);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+footer a:hover {
+  color: var(--text-color);
+}
